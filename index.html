@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator APP</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="toggle.css" />
+    <link rel="stylesheet" href="button.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="text-white">calc</h1>
+        <div class="theme">
+          <p class="text-white">THEME</p>
+          <div class="toogle">
+            <div class="toogle-number">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+            </div>
+            <div class="tri-state-toggle">
+              <input
+                class="button toggle-state toogle-red"
+                type="radio"
+                name="toggle"
+                id="one"
+              />
+              <input
+                class="button toggle-state toogle-red"
+                type="radio"
+                name="toggle"
+                id="two"
+              />
+              <input
+                class="button toggle-state toggle-blue"
+                type="radio"
+                name="toggle"
+                id="three"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <main>
+      <div class="container">
+        <section class="calc">
+          <div><p id="display2"></p></div>
+          <input type="text" name="calc" id="display" />
+        </section>
+      </div>
+      <div class="container">
+        <section class="btn">
+          <button class="btn-white" onclick="display('7')">7</button>
+          <button class="btn-white" onclick="display('8')">8</button>
+          <button class="btn-white" onclick="display('9')">9</button>
+          <button class="btn-removed" onclick="deleted()">DEL</button>
+
+          <button class="btn-white" onclick="display('4')">4</button>
+          <button class="btn-white" onclick="display('5')">5</button>
+          <button class="btn-white" onclick="display('6')">6</button>
+          <button class="btn-white" onclick="display('+')">+</button>
+
+          <button class="btn-white" onclick="display('1')">1</button>
+          <button class="btn-white" onclick="display('2')">2</button>
+          <button class="btn-white" onclick="display('3')">3</button>
+          <button class="btn-white" onclick="display('-')">-</button>
+
+          <button class="btn-white" onclick="display('.')">.</button>
+          <button class="btn-white" onclick="display('0')">0</button>
+          <button class="btn-white" onclick="display('/')">/</button>
+          <button class="btn-white" onclick="display('*')">x</button>
+
+          <button class="span-2 btn-removed" onclick="reset()">reset</button>
+          <button class="span-2 btn-cal" onclick="calculate()">=</button>
+        </section>
+      </div>
+    </main>
+  </body>
+  <script src="script.js"></script>
+</html>

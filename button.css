@@ -1,0 +1,64 @@
+main .btn button {
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  padding: 13px 5px;
+  text-transform: uppercase;
+  transform: translateZ(0);
+}
+
+main .btn button:hover:not(:disabled) {
+  filter: brightness(2);
+  -webkit-filter: brightness(1.1);
+}
+
+main .btn button:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+main .btn button:after {
+  background-clip: padding-box;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.btn-white {
+  background-color: var(--button-shadow-color);
+  color: var(--button-color);
+}
+
+.btn-white:after {
+  background-color: var(--button-primary-color);
+}
+
+.btn-removed {
+  background-color: var(--button-removed-bg-shadow-color);
+  color: var(--button-removed-color);
+}
+.btn-removed:after {
+  background-color: var(--button-removed-bg-primary-color);
+}
+
+.btn-cal {
+  background-color: var(--button-cal-bg-shadow-color);
+  color: var(--button-cal-color);
+}
+.btn-cal:after {
+  background-color: var(--button-cal-bg-primary-color);
+}

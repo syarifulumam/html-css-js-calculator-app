@@ -1,0 +1,38 @@
+.toogle {
+  margin-top: -20px;
+}
+.toggle-state {
+  height: 15px;
+  width: 15px;
+  appearance: none;
+  background-color: var(--toogle-color);
+  border-radius: 50%;
+  opacity: 0;
+}
+/* .toogle-red {
+  background-color: hsl(6, 70%, 34%);
+}
+.toggle-blue {
+  background-color: hsl(176, 100%, 44%);
+} */
+.toogle-number {
+  display: flex;
+  gap: 9px;
+  color: var(--text-color);
+  justify-content: center;
+}
+.toggle-state:hover {
+  filter: brightness(1.7);
+  cursor: pointer;
+}
+.tri-state-toggle {
+  display: flex;
+  justify-content: center;
+  border: none;
+  padding: 4px;
+  background-color: var(--toogle-bg-color);
+  border-radius: 50px;
+}
+#one {
+  opacity: 1;
+}
