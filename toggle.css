@@ -9,12 +9,6 @@
   border-radius: 50%;
   opacity: 0;
 }
-/* .toogle-red {
-  background-color: hsl(6, 70%, 34%);
-}
-.toggle-blue {
-  background-color: hsl(176, 100%, 44%);
-} */
 .toogle-number {
   display: flex;
   gap: 9px;
@@ -32,7 +26,4 @@
   padding: 4px;
   background-color: var(--toogle-bg-color);
   border-radius: 50px;
-}
-#one {
-  opacity: 1;
 }

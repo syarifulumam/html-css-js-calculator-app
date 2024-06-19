@@ -1,16 +1,22 @@
 // toogle
 let buttons = document.getElementsByClassName("toggle-state");
 let arr = [...buttons];
+let theme = localStorage.getItem("theme");
+let toogle = document.getElementById(theme);
+toogle.style.opacity = "1";
+document.documentElement.setAttribute("data-theme", theme);
 
 arr.forEach((element, index) => {
   element.addEventListener("click", () => {
     element.style.opacity = "1";
-    console.log(element.id);
-    if (element.id == "one") {
+    if (element.id == "root") {
+      localStorage.setItem("theme", "root");
       document.documentElement.setAttribute("data-theme", "root");
     } else if (element.id == "two") {
+      localStorage.setItem("theme", "two");
       document.documentElement.setAttribute("data-theme", "two");
     } else {
+      localStorage.setItem("theme", "three");
       document.documentElement.setAttribute("data-theme", "three");
     }
 
@@ -25,6 +31,7 @@ arr.forEach((element, index) => {
 });
 
 // calculator
+let finish = false;
 const display = (value) => {
   let x = document.getElementById("display");
   let currentValue = x.value; //value display
@@ -33,16 +40,25 @@ const display = (value) => {
   if (
     currentValue === "Syntax Error" ||
     currentValue === "Infinity" ||
-    currentValue === "NaN"
+    currentValue === "NaN" ||
+    finish === true
   ) {
+    finish = false;
     x.value = "";
+    currentValue = "";
   }
 
-  // apakah angka
+  // apakah input adalah angka
   if (/[0-9]/.test(value)) {
     x.value += value;
-    // apakah aritmatika
-  } else if (/[*/+\-.]/.test(value) && currentValue.length > 0) {
+    // apakah input adalah aritmatika
+  } else if (
+    /[*/+\-.]/.test(value) &&
+    currentValue.length > 0 &&
+    currentValue !== "Syntax Error" &&
+    currentValue !== "Infinity" &&
+    currentValue !== "NaN"
+  ) {
     // apakah karakter terakhir bukan aritmatika
     if (!/[*/+\-.]/.test(lastChar)) {
       x.value += value;
@@ -61,7 +77,10 @@ const reset = () => {
 
 const deleted = () => {
   let x = document.getElementById("display").value;
-  document.getElementById("display").value = x.slice(0, -1);
+  //jika display error
+  x === "Syntax Error" || x === "Infinity" || x === "NaN"
+    ? reset()
+    : (document.getElementById("display").value = x.slice(0, -1));
 };
 
 const calculate = () => {
@@ -71,11 +90,12 @@ const calculate = () => {
   }
   try {
     let y = eval(x);
-    console.log(y);
     document.getElementById("display").value = y;
   } catch (e) {
     if (e instanceof SyntaxError) {
       document.getElementById("display").value = "Syntax Error";
     }
   }
+
+  finish = true;
 };
