@@ -1,32 +1,34 @@
-// toogle
-let buttons = document.getElementsByClassName("toggle-state");
-let arr = [...buttons];
-let theme = localStorage.getItem("theme");
-let toogle = document.getElementById(theme);
-toogle.style.opacity = "1";
-document.documentElement.setAttribute("data-theme", theme);
+document.addEventListener("DOMContentLoaded", () => {
+  // toogle
+  let buttons = document.getElementsByClassName("toggle-state");
+  let arr = [...buttons];
+  let theme = localStorage.getItem("theme");
+  let toogle = document.getElementById(theme);
+  toogle.style.opacity = "1";
+  document.documentElement.setAttribute("data-theme", theme);
 
-arr.forEach((element, index) => {
-  element.addEventListener("click", () => {
-    element.style.opacity = "1";
-    if (element.id == "root") {
-      localStorage.setItem("theme", "root");
-      document.documentElement.setAttribute("data-theme", "root");
-    } else if (element.id == "two") {
-      localStorage.setItem("theme", "two");
-      document.documentElement.setAttribute("data-theme", "two");
-    } else {
-      localStorage.setItem("theme", "three");
-      document.documentElement.setAttribute("data-theme", "three");
-    }
+  arr.forEach((element, index) => {
+    element.addEventListener("click", () => {
+      element.style.opacity = "1";
+      if (element.id == "root") {
+        localStorage.setItem("theme", "root");
+        document.documentElement.setAttribute("data-theme", "root");
+      } else if (element.id == "two") {
+        localStorage.setItem("theme", "two");
+        document.documentElement.setAttribute("data-theme", "two");
+      } else {
+        localStorage.setItem("theme", "three");
+        document.documentElement.setAttribute("data-theme", "three");
+      }
 
-    arr
-      .filter(function (item) {
-        return item != element;
-      })
-      .forEach((item) => {
-        item.style.opacity = "0";
-      });
+      arr
+        .filter(function (item) {
+          return item != element;
+        })
+        .forEach((item) => {
+          item.style.opacity = "0";
+        });
+    });
   });
 });
 
