@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // toogle
   let buttons = document.getElementsByClassName("toggle-state");
   let arr = [...buttons];
+  localStorage.setItem("theme", "root");
   let theme = localStorage.getItem("theme");
   let toogle = document.getElementById(theme);
   toogle.style.opacity = "1";
